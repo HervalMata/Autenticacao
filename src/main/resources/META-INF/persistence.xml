@@ -1,0 +1,31 @@
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+            http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+	<persistence-unit name="cadastroPU" transaction-type="JTA">
+		
+		<!-- Provedor/implemetação do JPA -->
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<jta-data-source>java:jboss/datasources/CadastroDS</jta-data-source>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		
+		<properties>
+			
+			<!--  Dados da conexão -->
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/cadastrodb" />
+            <property name="hibernate.connection.username" value="root" />
+            <property name="hibernate.connection.password" value="1234" />
+ 
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider" />
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.format_sql" value="true"/>
+			
+		</properties>
+		
+	</persistence-unit>
+</persistence>
