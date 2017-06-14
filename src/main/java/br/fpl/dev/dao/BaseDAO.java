@@ -1,7 +1,10 @@
 package br.fpl.dev.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 public abstract class BaseDAO<T> {
 	
@@ -23,7 +26,11 @@ public abstract class BaseDAO<T> {
 	 * @param tipo
 	 */
 	public void salvar(T tipo){
-		em.persist(tipo);
+		try {
+			em.persist(tipo);
+		} catch (Exception e){
+			throw e;
+		}
 	}
 	
 	/**
@@ -31,7 +38,37 @@ public abstract class BaseDAO<T> {
 	 * @param tipo
 	 */
 	public void atualizar(T tipo){
-		em.merge(tipo);
+		try {
+			em.merge(tipo);
+		} catch (Exception e){
+			throw e;
+		}
+	}
+	
+	/**
+	 * Método para deletar um objeto no banco
+	 * @param tipo
+	 */
+	public void deletar(T tipo){
+		try {
+			em.remove(tipo);
+		} catch (Exception e){
+			throw e;
+		}
+	}
+	
+	/**
+	 * Métodos para buscar todos os objetos no banco
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public List<T> buscarTodos(){
+		StringBuilder sql = new StringBuilder();
+		sql.append("from ").append(tipo.getSimpleName());
+		
+		Query q = em.createQuery(sql.toString());
+		
+		return q.getResultList();
 	}
 	
 }

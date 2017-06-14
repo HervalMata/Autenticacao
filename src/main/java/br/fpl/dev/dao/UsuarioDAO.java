@@ -6,5 +6,7 @@ import br.fpl.dev.entities.Usuario;
 
 @Stateless
 public class UsuarioDAO extends BaseDAO<Usuario>{
-	
+	public UsuarioDAO(){
+		super(Usuario.class);
+	}
 }
