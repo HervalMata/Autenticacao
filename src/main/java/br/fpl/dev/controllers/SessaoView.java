@@ -9,15 +9,14 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import br.fpl.dev.entities.Usuario;
-import br.fpl.dev.service.UsuarioService;
+import br.fpl.dev.service.UsuarioServiceIF;
 
 @ManagedBean
 @SessionScoped
-
 public class SessaoView implements Serializable {
 
 	@Inject
-	private UsuarioService usu;
+	private UsuarioServiceIF usu;
 	/**
 	 * 
 	 */
@@ -52,6 +51,7 @@ public class SessaoView implements Serializable {
 
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Dados incorretos!", ""));
+					reset();
 			return null;
 		}
 
@@ -64,9 +64,16 @@ public class SessaoView implements Serializable {
 	 public String logout() {
 		 
          SessionContext.getInstance().encerrarSessao();
-         System.out.println("SAINDO!");
          return "/index.jsf?faces-redirect=true";
       }
+	 
+	 /**
+	  * Reseta os campos
+	  */
+	 public void reset(){
+		 email = new String();
+		 senha = new String();
+	 }
 
 	public String getEmail() {
 		return email;

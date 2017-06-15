@@ -22,6 +22,7 @@ public class SessionContext {
     }
     
     private ExternalContext currentExternalContext(){
+    	
          if (FacesContext.getCurrentInstance() == null){
              throw new RuntimeException("O FacesContext não pode ser chamado fora de uma requisição HTTP");
          }else{

@@ -6,7 +6,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Login | Usuário</title>
+	<title>Cadastro | Usuário</title>
 	<style>
 		body {
 			margin-top: 10%;
@@ -21,22 +21,28 @@
 			
 				<p:messages id="messages" autoUpdate="true" closable="true"/>
 
-				<p:panel header="Login">
+				<p:panel header="Cadastro">
 
 					<div align="center">
 
 						<h:panelGrid columns="2" cellpadding="10">
+							
+							<p:outputLabel for="nome" value="Nome:" />
+							<p:inputText id="nome" required="true" value="#{cadastroView.nome}" />
+
+							<p:outputLabel for="sobrenome" value="Sobrenome:" />
+							<p:inputText id="sobrenome" value="#{cadastroView.sobrenome}" />
 
 							<p:outputLabel for="email" value="Email:" />
-							<p:inputText id="email" required="true" value="#{sessaoView.email}" />
+							<p:inputText id="email" required="true" value="#{cadastroView.email}" />
 
 							<p:outputLabel for="senha" value="Senha:" />
-							<p:password id="senha" required="true" value="#{sessaoView.senha}" />
+							<p:password id="senha" required="true" value="#{cadastroView.senha}" />
 							
 						</h:panelGrid>
 
 						<h:panelGrid columns="1" cellpadding="10" width="91%">
-							<p:commandButton value="Login" action="#{sessaoView.login()}"
+							<p:commandButton value="Cadastrar" action="#{cadastroView.cadastrar()}"
 								style="width: 100%;" 
 								process="@form"
 								update="@form">
@@ -44,9 +50,9 @@
 						</h:panelGrid>
 
 						<h:panelGrid columns="2">
-							<h:outputText value="Ainda não possui uma conta?"
+							<h:outputText value="Já possui uma conta?"
 								style="font-size:15px;" />
-							<p:link value="Cadastre-se" style="font-size:15px;" outcome="cadastro" />
+							<p:link value="Faça o login" style="font-size:15px;" outcome="index" />
 						</h:panelGrid>
 
 					</div>

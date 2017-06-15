@@ -9,7 +9,7 @@ import br.fpl.dev.dao.UsuarioDAO;
 import br.fpl.dev.entities.Usuario;
 
 @Stateless
-public class UsuarioService {
+public class UsuarioServiceImpl implements UsuarioServiceIF{
 	
 	@Inject
 	private UsuarioDAO dao;
@@ -56,6 +56,18 @@ public class UsuarioService {
 		}
 		
 		return usuRetorno;
+	}
+
+	public boolean cadastrar(Usuario usuario) {
+		
+		Usuario usuExistente = buscarPorEmail(usuario.getEmail());
+		
+		if (usuExistente == null){
+			dao.salvar(usuario);
+			return true;
+		}
+		
+		return false;
 	}
 
 }
