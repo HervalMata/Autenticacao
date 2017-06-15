@@ -82,6 +82,4 @@ public class CadastroView implements Serializable {
 		this.senha = senha;
 	}
 	
-	
-	
 }
