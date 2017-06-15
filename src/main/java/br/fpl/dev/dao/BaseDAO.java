@@ -57,6 +57,7 @@ public abstract class BaseDAO<T> {
 		}
 	}
 	
+	
 	/**
 	 * Métodos para buscar todos os objetos no banco
 	 * @return

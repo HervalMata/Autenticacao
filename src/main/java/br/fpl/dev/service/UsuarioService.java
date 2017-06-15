@@ -14,20 +14,48 @@ public class UsuarioService {
 	@Inject
 	private UsuarioDAO dao;
 	
-	public boolean autenticar(String email, String senha){
+	public Usuario autenticar(String email, String senha){
 		
 		List<Usuario> todosUsuarios = dao.buscarTodos();
+		Usuario usuAutenticado = null;
 		
 		for (Usuario u : todosUsuarios){
 			
 			if (u.getEmail().equals(email)){
 				
 				if (u.getSenha().equals(senha)){
-					return true;
+					
+					return usuAutenticado = buscarPorEmail(email);
+					
 				}
 			}
 		}
 		
-		return false;
+		return usuAutenticado;
 	}
+	
+	public Usuario buscarPorEmail(String email){
+		
+		List<Usuario> todosUsuarios = dao.buscarTodos();
+		Usuario usuRetorno = null;
+		
+		for (Usuario u : todosUsuarios){
+			
+			if (u.getEmail().equals(email)){
+				
+				usuRetorno = new Usuario();
+				
+				usuRetorno.setId(u.getId());
+				usuRetorno.setEmail(u.getEmail());
+				usuRetorno.setSenha(u.getSenha());
+				usuRetorno.setNome(u.getNome());
+				usuRetorno.setSobrenome(u.getSobrenome());
+				
+				return usuRetorno;
+			}
+		}
+		
+		return usuRetorno;
+	}
+
 }
