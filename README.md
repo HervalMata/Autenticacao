@@ -1,6 +1,6 @@
-#Cadastro Simples utilizando as tecnologias:
+# Cadastro Simples utilizando as tecnologias:
 
-##JavaEE 7
+## JavaEE 7
 
 * JSF 2.2
 * PRIMEFACES 6.1
