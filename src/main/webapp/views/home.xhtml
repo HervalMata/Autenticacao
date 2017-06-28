@@ -9,10 +9,10 @@
 <h:head>
 	<title>Home | Usuário</title>
 	<style>
-		body {
-			margin-top: 3%;
-		}
-	</style>
+body {
+	margin-top: 3%;
+}
+</style>
 </h:head>
 
 <body>
@@ -21,46 +21,41 @@
 
 		<div class="ui-g-4" style="margin: 0 auto;">
 
-			<h:form>
+			<p:fieldset legend="Dados do usuário" style="margin-bottom:20px">
 
-				<p:fieldset legend="Dados do usuário" style="margin-bottom:20px">
-				
-					<div align="center">
+				<div align="center">
 
-						<p:panel id="nome" header="Nome" style="margin: 20px 0 20px 0">
-							<p:outputLabel value="#{sessaoView.usuario.nome}" />
-						</p:panel>
+					<p:panel id="nome" header="Nome" style="margin: 20px 0 20px 0">
+						<p:outputLabel value="#{homeBean.nome}" />
+					</p:panel>
 
-						<p:panel id="sobrenome" header="Sobrenome"
-							style="margin-bottom:20px">
-							<p:outputLabel value="#{sessaoView.usuario.sobrenome}" />
-						</p:panel>
+					<p:panel id="sobrenome" header="Sobrenome"
+						style="margin-bottom:20px">
+						<p:outputLabel value="#{homeBean.sobrenome}" />
+					</p:panel>
 
-						<p:panel id="email" header="Email" style="margin-bottom:20px">
-							<p:outputLabel value="#{sessaoView.usuario.email}" />
-						</p:panel>
+					<p:panel id="email" header="Email" style="margin-bottom:20px">
+						<p:outputLabel value="#{homeBean.email}" />
+					</p:panel>
 
-						<p:panel id="senha" header="Senha" style="margin-bottom:20px">
-							<p:outputLabel value="#{sessaoView.usuario.senha}" />
-						</p:panel>
+					<p:panel id="senha" header="Senha" style="margin-bottom:20px">
+						<p:outputLabel value="#{homeBean.senha}" />
+					</p:panel>
 
-						<div align="right" style="margin-top: 2%;">
-							<h:form>
-								<p:commandButton value="Logout" icon="ui-icon-extlink"
-									action="#{sessaoView.logout()}" />
-							</h:form>
-						</div>
+					<div align="right" style="margin-top: 2%;">
+					
+						<h:form>
+							<p:commandButton value="Logout" icon="ui-icon-extlink"
+								action="#{sessaoBean.logout()}" />
+						</h:form>
 						
 					</div>
-					
-				</p:fieldset>
 
-			</h:form>
+				</div>
 
+			</p:fieldset>
 
 		</div>
-
-
 	</div>
 
 </body>

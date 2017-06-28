@@ -1,4 +1,4 @@
-# Cadastro Simples utilizando as tecnologias:
+# AutenticaÃ§Ã£o simples com cadastro utilizando as tecnologias:
 
 ## JavaEE 7
 
@@ -6,6 +6,6 @@
 * PRIMEFACES 6.1
 * HIBERNATE 5
 * JPA 2.1
-* MAVEN 3.3.9
-* Servidor de aplicação: WILDFLY 10.1.0
+* MAVEN 3.3
+* Servidor de aplicaï¿½ï¿½o: WILDFLY 10.1.0
 * Banco de dados: MYSQL( Connector/J 5.1.42 )

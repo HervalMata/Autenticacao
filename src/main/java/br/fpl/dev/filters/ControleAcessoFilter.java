@@ -2,6 +2,7 @@ package br.fpl.dev.filters;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -11,12 +12,14 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import br.fpl.dev.entities.Usuario;
+import br.fpl.dev.controllers.SessaoBean;
 
 @WebFilter(urlPatterns="/views/*")
 public class ControleAcessoFilter implements Filter{
+	
+	@Inject
+	private SessaoBean sessao;
 	
 	@Override
 	public void destroy() {
@@ -27,20 +30,14 @@ public class ControleAcessoFilter implements Filter{
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		
-		Usuario usuAutenticado = null;
-		HttpSession sessao = ((HttpServletRequest) request).getSession(false);
+		HttpServletRequest req = (HttpServletRequest) request;
+		HttpServletResponse res = (HttpServletResponse) response;
 		
-		if (sessao != null) {
-			usuAutenticado = (Usuario) sessao.getAttribute("usuAutenticado");
+		if (sessao.getUsuario() == null){
+			res.sendRedirect(req.getServletContext().getContextPath() + "/index.jsf");
 		}
 		
-		if (usuAutenticado == null){
-			HttpServletResponse resp = (HttpServletResponse) response;
-			resp.sendRedirect("/cadastro/index.jsf");
-		} 
-		
 		chain.doFilter(request, response);
-		
 	}
 	
 	@Override

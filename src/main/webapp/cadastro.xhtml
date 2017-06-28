@@ -8,59 +8,62 @@
 <h:head>
 	<title>Cadastro | Usuário</title>
 	<style>
-		body {
-			margin-top: 10%;
-		}
-	</style>
+body {
+	margin-top: 10%;
+}
+</style>
 </h:head>
 <body>
-	<h:form>
-		<div class="ui-g">
 
-			<div class="ui-g-4" align="center" style="margin: 0 auto;">
-			
-				<p:messages id="messages" autoUpdate="true" closable="true"/>
+	<div class="ui-g">
 
-				<p:panel header="Cadastro">
+		<div class="ui-g-4" align="center" style="margin: 0 auto;">
 
-					<div align="center">
+			<p:messages id="messages" autoUpdate="true" closable="true" />
 
+			<p:panel header="Cadastro">
+
+				<div align="center">
+					<h:form>
 						<h:panelGrid columns="2" cellpadding="10">
-							
+
 							<p:outputLabel for="nome" value="Nome:" />
-							<p:inputText id="nome" required="true" value="#{cadastroView.nome}" />
+							<p:inputText id="nome" required="true"
+								value="#{cadastroBean.nome}" />
 
 							<p:outputLabel for="sobrenome" value="Sobrenome:" />
-							<p:inputText id="sobrenome" value="#{cadastroView.sobrenome}" />
+							<p:inputText id="sobrenome" value="#{cadastroBean.sobrenome}" />
 
 							<p:outputLabel for="email" value="Email:" />
-							<p:inputText id="email" required="true" value="#{cadastroView.email}" />
+							<p:inputText id="email" required="true"
+								value="#{cadastroBean.email}" />
 
 							<p:outputLabel for="senha" value="Senha:" />
-							<p:password id="senha" required="true" value="#{cadastroView.senha}" />
-							
+							<p:password id="senha" required="true"
+								value="#{cadastroBean.senha}" />
+
 						</h:panelGrid>
 
 						<h:panelGrid columns="1" cellpadding="10" width="91%">
-							<p:commandButton value="Cadastrar" action="#{cadastroView.cadastrar()}"
-								style="width: 100%;" 
-								process="@form"
-								update="@form">
+							<p:commandButton value="Cadastrar"
+								action="#{cadastroBean.cadastrar()}" style="width: 100%;"
+								process="@form" update="@form">
 							</p:commandButton>
 						</h:panelGrid>
+					</h:form>
 
-						<h:panelGrid columns="2">
-							<h:outputText value="Já possui uma conta?"
-								style="font-size:15px;" />
-							<p:link value="Faça o login" style="font-size:15px;" outcome="index" />
-						</h:panelGrid>
+					<h:panelGrid columns="2">
+						<h:outputText value="Já possui uma conta?" style="font-size:15px;" />
+						<p:link value="Faça o login" style="font-size:15px;"
+							outcome="index" />
+					</h:panelGrid>
 
-					</div>
+				</div>
 
-				</p:panel>
+			</p:panel>
 
-			</div>
 		</div>
-	</h:form>
+	</div>
+
 </body>
 </html>
