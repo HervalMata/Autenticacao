@@ -6,8 +6,8 @@
 	<artifactId>cadastro</artifactId>
 	<version>0.1</version>
 	<packaging>war</packaging>
-	<name>Cadastro</name>
-	<description>Cadastro simples</description>
+	<name>Autenticacao</name>
+	<description>autenticação simples com cadastro</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -93,7 +93,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>cadastro</finalName>
+		<finalName>autenticacao</finalName>
 
 		<plugins>
 			<plugin>
